@@ -18,6 +18,7 @@ public class MainProject {
 								+ "w - wyjdz\n"
 								+ "\n");
 			
+			System.out.print("Wprowadz: ");
 			String a = scanner.next();
 			
 			switch(a.toLowerCase()){
@@ -36,6 +37,8 @@ public class MainProject {
 			default: break;
 			
 			}
+			
+			System.out.println();
 		}while(true);
 	}
 
