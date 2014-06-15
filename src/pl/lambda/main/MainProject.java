@@ -69,9 +69,9 @@ public class MainProject {
 						"\to - suma wieku wszystkich Osob\n"
 						+ "\td - najstarsza Osaba\n"
 						+ "\tn - najmlodsza Osoba\n"
-						+ "\tp - sredni wiek Osob\n"
+						+ "\ta - sredni wiek Osob\n"
 						+ "\ti - zwieksz wiek Osobom\n"
-						+ "\tow - wroc\n"
+						+ "\tw - wroc\n"
 						+ "\n");
 
 				System.out.print("Wprowadz: ");

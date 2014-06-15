@@ -71,7 +71,6 @@ public class PersonManagerImpl implements PersonManager{
 				AgeOp ap = (x, y) -> x + y;
 				sum = ap.s(sum, p.getAge());
 			}
-			
 			return sum;
 		};
 		return sumAge.apply(persons);
@@ -91,18 +90,50 @@ public class PersonManagerImpl implements PersonManager{
 	@Override
 	public Double avgPerson(List<Person> persons) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Function<List<Person>, Double> avgAge = per -> {
+			double sum = 0.0;
+			AgeAvg aa;
+			for(Person p: per){
+				aa = (x, n) -> x + n;
+				sum = aa.op(sum, p.getAge());
+			}
+			aa = (x, n) -> x/n;
+			
+			return aa.op(sum, per.size()); 
+		};
+		
+		return avgAge.apply(persons);
 	}
 	@Override
 	public List<Person> incAgeAllPeople(List<Person> persons) {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Zwiêksz wiek o: ");
+		try{
+			int incAge = scanner.nextInt();
+			
+			Function<List<Person>, List<Person>> incAgeAll = p -> p.stream().map(per -> {
+				AgeOp ap = (x, y) -> x + y;
+				per.setAge(ap.s(incAge, per.getAge()));
+				return per;
+			})
+			.collect(Collectors.toList());;
+			
+			return incAgeAll.apply(persons);
+			
+		}catch(Exception e){
+			//noop
+		}
+		
+		return persons;
 	}
 
 	interface AgeOp{
 		int s(int x, int y);
 	}
-	
+	interface AgeAvg{
+		double op(double x, double n);
+	}
 
 
 }
