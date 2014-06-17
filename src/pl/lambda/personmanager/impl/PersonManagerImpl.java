@@ -99,7 +99,6 @@ public class PersonManagerImpl implements PersonManager{
 				sum = aa.op(sum, p.getAge());
 			}
 			aa = (x, n) -> x/n;
-			
 			return aa.op(sum, per.size()); 
 		};
 		
